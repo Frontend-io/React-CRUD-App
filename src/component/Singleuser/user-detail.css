@@ -1,0 +1,6 @@
+.user{
+    padding: 20px;
+}
+.user > * {
+    margin: 0px;
+}
