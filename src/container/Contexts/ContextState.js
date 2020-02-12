@@ -4,7 +4,13 @@ export const StateContext = createContext();
 
 function ContextStateProvider(props) {
 	const [myState, setMyState] = useState([
-		{ firstName: "Iyobosa", lastName: "Noah", age: 34, occupation: "Banker", color: "blue", id: 2 },
+		{ firstName: "Iyobosa", 
+			lastName: "Noah", 
+			age: 34, 
+			occupation: "Banker", 
+			color: "blue", 
+			id: 2 
+		},
 		{
 			firstName: "John",
 			lastName: "Doe",
@@ -39,7 +45,7 @@ function ContextStateProvider(props) {
 		saveUser: false,
 		messageContent: "",
 		setMessage: content => {
-			setMyState({ ...system, messageContent: content });
+			setSystem({ ...system, messageContent: content });
 		}
 	});
 
@@ -67,7 +73,7 @@ function ContextStateProvider(props) {
 	// Add new user
 	const adduser = (firstName, lastName, age, occupation, description, id) => {
 		setMyState([{ firstName, lastName, age, occupation, description, id }, ...myState]);
-	};
+	}
 	// Delete user
 	const deleteUser = user => {
 		if (myState.length === 1) {
@@ -114,7 +120,8 @@ function ContextStateProvider(props) {
 				adduser,
 				deleteUser,
 				editUser,
-				getCurrentUser
+				getCurrentUser,
+				setMyState
 			}}
 		>
 			{props.children}

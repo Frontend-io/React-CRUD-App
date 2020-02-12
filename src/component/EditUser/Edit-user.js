@@ -5,7 +5,9 @@ import TopBarNavigation from "../WindowNavigation/NavigationBar";
 
 const EditUser = props => {
 	const userId = props.match.params.id;
-	const { getCurrentUser, editUser } = useContext(StateContext);
+	const { getCurrentUser, editUser,system, setMyState} = useContext(StateContext);
+	const {setMessage} = system;
+
 	const user = getCurrentUser(userId);
 	const [currUser, modifyUser] = useState({
 		firstName: user.firstName,
@@ -16,14 +18,18 @@ const EditUser = props => {
 		id: user.id
 	});
 
+
+
 	const handleChange = event => {
+		const {name, value} = event.target;
 		event.persist();
-		modifyUser(currUser => ({ ...currUser, [event.target.name]: event.target.value }));
+		modifyUser(currUser => ({ ...currUser, [name]: value }));
 	};
 
 	const print = e => {
 		e.preventDefault();
 		editUser(currUser);
+		setMessage(`User updated successfully!`);		
 	};
 	// Get the particular user from the link
 

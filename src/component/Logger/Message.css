@@ -10,10 +10,10 @@
     top: 85%;
     left: 50%;
     transform: translateX(-50%);
-    animation: sweep .3s ease-out;
+    animation: swipeUp .25s ease-out;
     box-shadow: 0px 5px 20px rgba(0,0,0,.08);
 }
-@keyframes sweep{
+@keyframes swipeUp{
     from{
         top: 130%
     }
